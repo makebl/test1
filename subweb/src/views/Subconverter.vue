@@ -249,15 +249,7 @@
                     icon="el-icon-copy-document"
                     :loading="loading3"
                 >从URL解析
-                </el-button>
-              </el-form-item>
-              <el-form-item label-width="0px" style="text-align: center">
-                <el-button
-                    style="width: 250px;"
-                    type="success"
-                    icon="el-icon-video-play"
-                    @click="centerDialogVisible = true"
-                >视频教程
+
                 </el-button>
               </el-form-item>
             </el-form>
@@ -474,6 +466,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
+          "本地自定义后端【vless+hysteria】": "http://$custom_ip:25500"
           "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
           "肥羊备用后端【vless+hysteria】": "https://sub.d1.mk",
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
