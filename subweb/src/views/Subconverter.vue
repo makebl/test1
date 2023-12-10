@@ -941,7 +941,7 @@ export default {
   },
   mounted() {
     this.tanchuang();
-    this.form.clientType = "singbox";
+    this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
