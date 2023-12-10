@@ -474,7 +474,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "本地自定义后端【vless+hysteria】": "http://127.0.0.1:25500"
+          "本地自定义后端【vless+hysteria】": "http://127.0.0.1:25500",
           "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
           "肥羊备用后端【vless+hysteria】": "https://sub.d1.mk",
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
@@ -948,7 +948,7 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
-    this.tanchuang();
+ // this.tanchuang();
     this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
@@ -1010,15 +1010,6 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
-    },
-// 注释掉或删除下面这行
-// tanchuang() {
-//   this.$alert(`<div style="text-align:center;font-size:15px">这里是你想要展示的信息</div>`, '信息面板', {
-//     confirmButtonText: '确定',
-//     dangerouslyUseHTMLString: true,
-//     customClass: 'msgbox'
-//   });
-// }
 
     },
     onCopy() {
@@ -1406,7 +1397,7 @@ export default {
             this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
             let a = this.form.customBackend.indexOf("api.v1.mk") !== -1 || this.form.customBackend.indexOf("sub.d1.mk") !== -1;
             let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
-            a ? this.$message.success(`${this.backendVersion}` + "支持vless+hysteria订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
+            a ? this.$message.success(`${this.backendVersion}` + "肥羊负载均衡增强版后端，已屏蔽免费节点池（会返回403），额外支持vless+hysteria订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
           })
           .catch(() => {
             this.$message.error("请求SubConverter版本号返回数据失败，该后端不可用！");
