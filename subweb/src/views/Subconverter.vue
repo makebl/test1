@@ -257,7 +257,45 @@
                     type="success"
                     icon="el-icon-video-play"
                     @click="centerDialogVisible = true"
-
+                >视频教程
+                </el-button>
+              </el-form-item>
+            </el-form>
+          </el-container>
+        </el-card>
+      </el-col>
+    </el-row>
+    <el-dialog
+        title="请选择需要观看的视频教程"
+        :visible.sync="centerDialogVisible"
+        :show-close="false"
+        width="40vh"
+        top="30vh"
+        center>
+      <div label-width="0px" style="text-align: center">
+        <el-button
+            style="width: 200px;"
+            type="primary"
+            icon="el-icon-video-play"
+            @click="gotoBasicVideo();centerDialogVisible = false"
+        >基础视频教程
+        </el-button>
+      </div>
+      <div label-width="0px" style="text-align: center;margin: 3vh 0 2vh">
+        <el-button
+            style="width: 200px;"
+            type="danger"
+            icon="el-icon-video-play"
+            @click="gotoAdvancedVideo();centerDialogVisible = false"
+        >进阶视频教程
+        </el-button>
+      </div>
+      <div label-width="0px" style="text-align: center;margin: 3vh 0 2vh">
+        <el-button
+            style="width: 200px;"
+            type="warning"
+            icon="el-icon-download"
+            @click="toolsDown"
         >代理工具集合
         </el-button>
       </div>
@@ -436,7 +474,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "本地自定义后端【vless+hysteria】": "http://$user_ip:25500",
+          "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
           "肥羊备用后端【vless+hysteria】": "https://sub.d1.mk",
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
           nameless13提供: "https://www.nameless13.com",
@@ -445,7 +483,6 @@ export default {
           "sub作者&lhie1提供": "https://api.dler.io",
         },
         backendOptions: [
-          {value: "http://$user_ip:25500"},
           {value: "https://api.v1.mk"},
           {value: "https://sub.d1.mk"},
           {value: "https://api.tsutsu.one"},
@@ -459,12 +496,12 @@ export default {
             label: "通用",
             options: [
               {
-                label: "默认ZHANG",
-                value: "https://raw.githubusercontent.com/shidahuilang/luci-app-openclash/clash-ZHANG/Rule_config/ZHANG.ini"
+                label: "默认",
+                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini"
               },
               {
-                label: "默认（ACL_全分组多模式版）",
-                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
+                label: "默认（自动测速）",
+                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini"
               },
               {
                 label: "默认（索尼电视专用）",
@@ -501,7 +538,7 @@ export default {
               },
               {
                 label: "ACL_无测速版",
-                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
+                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_NoAuto.ini"
               },
               {
                 label: "ACL_去广告版",
@@ -520,7 +557,7 @@ export default {
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_NoAuto.ini"
               },
               {
-                label: "ACL_Online_Full全分组版",
+                label: "ACL_全分组版",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini"
               },
               {
@@ -852,9 +889,9 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "http://$user_ip:25500" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://api.v1.mk" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/shidahuilang/luci-app-openclash/clash-ZHANG/Rule_config/ZHANG.ini",
+        remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -909,8 +946,8 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
- // this.tanchuang();
-    this.form.clientType = "clash";
+    this.tanchuang();
+    this.form.clientType = "singbox";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
@@ -971,7 +1008,13 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
-
+    },
+    tanchuang() {
+      this.$alert(`<div style="text-align:center;font-size:15px"><strong><span style="font-size:30px;color: red">本站订阅转换已支持完整的Sing-Box订阅转换！</span></strong></br></br><strong><span style="font-size:20px">本站官方TG交流群：</span><span><a href="https://t.me/feiyangdigital" target="_blank" style="color:red;font-size:20px;text-decoration:none">点击加入</a></span></strong></br><strong><span style="font-size:20px">IEPL高端机场（<span style="color:blue">原生支持各种流媒体</span>）：</span><span><a href="https://www.mcwy.org" style="color:red;font-size:20px;text-decoration:none">点击注册</a></span></strong></br><strong><span style="font-size:20px">奈飞、ChatGPT合租（<span style="color:blue">优惠码：feiyang</span>）：</span><span><a href="https://hezu.v1.mk/" style="color:red;font-size:20px;text-decoration:none">点击上车</a></span></strong></br><strong><span style="font-size:20px">IOS外区应用代购：</span><span><a href="https://fk.myue.club" style="color:red;font-size:20px;text-decoration:none">点击查看</a></span></strong></br><strong><span style="font-size:20px">牧场流媒体支持状态实时检测图：</span><span><a href="https://nf.mccloud.vip" style="color:red;font-size:20px;text-decoration:none">点击查看</a></span></strong></br>本站服务器赞助机场-牧场物语，是一家拥有BGP中继+IEPL企业级内网专线的高端机场，适合各个价位要求的用户，牧场物语采用最新的奈飞非自制剧解决方案，出口随机更换IP，确保尽可能的每个用户可以用上独立IP，以此来稳定解决奈飞非自制剧的封锁，并推出7*24小时奈飞非自制剧节点自动检测系统，用户再也不用自己手动一个个的乱试节点了，目前牧场的新加坡，台湾等节区域点均可做到24H稳定非自制剧观看！</br></div>`, '信息面板', {
+        confirmButtonText: '确定',
+        dangerouslyUseHTMLString: true,
+        customClass: 'msgbox'
+      });
     },
     onCopy() {
       this.$message.success("已复制");
