@@ -249,15 +249,7 @@
                     icon="el-icon-copy-document"
                     :loading="loading3"
                 >从URL解析
-                </el-button>
-              </el-form-item>
-              <el-form-item label-width="0px" style="text-align: center">
-                <el-button
-                    style="width: 250px;"
-                    type="success"
-                    icon="el-icon-video-play"
-                    @click="centerDialogVisible = true"
-                >视频教程
+
                 </el-button>
               </el-form-item>
             </el-form>
@@ -1009,7 +1001,6 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
-    },
 
     },
     onCopy() {
