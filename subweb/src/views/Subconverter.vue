@@ -436,7 +436,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "本地自定义后端【vless+hysteria】": "http://150.230.208.154:25500",
+          "本地自定义后端【vless+hysteria】": "http://$user_ip:25500",
           "肥羊备用后端【vless+hysteria】": "https://sub.d1.mk",
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
           nameless13提供: "https://www.nameless13.com",
@@ -445,7 +445,7 @@ export default {
           "sub作者&lhie1提供": "https://api.dler.io",
         },
         backendOptions: [
-          {value: "http://150.230.208.154:25500"},
+          {value: "http://$user_ip:25500"},
           {value: "https://api.v1.mk"},
           {value: "https://sub.d1.mk"},
           {value: "https://api.tsutsu.one"},
@@ -852,7 +852,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://api.v1.mk" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "http://$user_ip:25500" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://raw.githubusercontent.com/shidahuilang/luci-app-openclash/clash-ZHANG/Rule_config/ZHANG.ini",
         excludeRemarks: "",
