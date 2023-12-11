@@ -438,7 +438,7 @@ export default {
       btnBoolean: false,
       options: {
         clientTypes: {
-          "Sing-Box": "clash",
+          "Sing-Box": "singbox",
           Clash: "clash",
           Surge2: "surge&ver=2",
           Surge3: "surge&ver=3",
