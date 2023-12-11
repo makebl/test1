@@ -460,12 +460,12 @@ export default {
             label: "通用",
             options: [
               {
-                label: "默认",
+                label: "默认ZHANG",
                 value: "https://raw.githubusercontent.com/shidahuilang/luci-app-openclash/clash-ZHANG/Rule_config/ZHANG.ini"
               },
               {
-                label: "默认（自动测速）",
-                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini"
+                label: "默认（ACL_全分组多模式版）",
+                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
               },
               {
                 label: "默认（索尼电视专用）",
@@ -502,7 +502,7 @@ export default {
               },
               {
                 label: "ACL_无测速版",
-                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_NoAuto.ini"
+                value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_MultiMode.ini"
               },
               {
                 label: "ACL_去广告版",
@@ -521,7 +521,7 @@ export default {
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Mini_NoAuto.ini"
               },
               {
-                label: "ACL_全分组版",
+                label: "ACL_Online_Full全分组版",
                 value: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full.ini"
               },
               {
