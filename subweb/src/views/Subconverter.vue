@@ -853,7 +853,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "customBackend: `https://${user_ip}`," : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "customBackend: `https://api.v1.mk`," : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://raw.githubusercontent.com/shidahuilang/luci-app-openclash/clash-ZHANG/Rule_config/ZHANG.ini",
         excludeRemarks: "",
