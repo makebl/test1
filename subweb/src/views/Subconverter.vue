@@ -436,7 +436,7 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
-          "本地自定义后端【vless+hysteria】": "http://127.0.0.1:25500",
+          "本地自定义后端【vless+hysteria】": "${user_ip}:25500",
           "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
           "肥羊备用后端【vless+hysteria】": "https://sub.d1.mk",
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
@@ -853,7 +853,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://api.v1.mk" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "customBackend: `https://${user_ip}`," : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://raw.githubusercontent.com/shidahuilang/luci-app-openclash/clash-ZHANG/Rule_config/ZHANG.ini",
         excludeRemarks: "",
@@ -1358,7 +1358,7 @@ export default {
             this.backendVersion = res.data.replace(/backend\n$/gm, "");
             this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
             let a = this.form.customBackend.indexOf("api.v1.mk") !== -1 || this.form.customBackend.indexOf("sub.d1.mk") !== -1;
-            let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
+            let b = this.form.customBackend.indexOf("${user_ip}") !== -1;
             a ? this.$message.success(`${this.backendVersion}` + "肥羊负载均衡增强版后端，已屏蔽免费节点池（会返回403），额外支持vless+hysteria订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
           })
           .catch(() => {
