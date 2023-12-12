@@ -1002,8 +1002,6 @@ export default {
         window.localStorage.setItem('localTheme', 'light-mode');
       }
     },
-
-    },
     onCopy() {
       this.$message.success("已复制");
     },
