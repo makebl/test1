@@ -1008,12 +1008,8 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
-    },
-    tanchuang() {
-        dangerouslyUseHTMLString: true,
-        customClass: 'msgbox'
-      });
-    },
+        
+      }
     onCopy() {
       this.$message.success("已复制");
     },
