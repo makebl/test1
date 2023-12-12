@@ -937,7 +937,7 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
-    this.form.clientType = "singbox";
+    this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
