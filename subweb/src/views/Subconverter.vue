@@ -946,7 +946,6 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
-    this.tanchuang();
     this.form.clientType = "singbox";
     this.getBackendVersion();
     this.anhei();
